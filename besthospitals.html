@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Hospitals</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;  
+      align-items: center;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+    header {
+      background-color: #008080;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+      position: fixed;  
+      top: 0;
+      left: 0;
+      z-index: 1000; 
+    }
+
+    nav {
+      background-color: #006666;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    nav ul li {
+      display: inline-block;
+      position: relative;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li:hover {
+      background-color: #004d4d;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: initial;
+      top: 50px;
+      left: 0;
+      background-color: #006666;
+      width: 200px;
+    }
+
+    nav ul li ul li {
+      display: block;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+    section {
+      margin-top: 80px;  
+      width: 100%;
+      max-width: 800px;  
+    }
+
+    .section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    .filter-container {
+      margin-bottom: 15px;
+    }
+
+    .filter-input {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .hospital-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .hospital-item {
+      background-color: #fafafa;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .hospital-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .hospital-link {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .hospital-link:hover {
+      color: #0056b3;
+    }
+
+    .rating {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .tooltip {
+      display: none;
+      position: absolute;
+      bottom: 110%;  
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      width: 80%;
+      text-align: center;
+      z-index: 10; 
+    }
+
+    .hospital-item:hover .tooltip {
+      display: block;
+    }
+    footer {
+      background-color: #008080;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="index.html" onclick="showSection('home')">Home</a></li>
+      <li><a href="tests.html" onclick="showSection('tests')">Tests</a></li>
+      <li><a href="doctorsfinal.html" onclick="showSection('doctors')">Doctors</a></li>
+      <li><a href="newfinal1.html" onclick="showSection('booking')">Book Appointment</a></li>
+      <li><a href="besthospitals.html" onclick="showSection('hospitals')">Best Hospitals</a></li>
+      <li><a href="loginfinal.html" onclick="showSection('doctorsLogin')">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="hospitals" class="section">
+  <h2>Best Hospitals</h2>
+  <div class="filter-container">
+    <input type="text" id="filterInput" class="filter-input" placeholder="Filter hospitals by name..." onkeyup="filterHospitals()">
+  </div>
+
+  <ul id="hospitalList" class="hospital-list">
+    <li class="hospital-item">
+      <a href="https://www.apollohospitals.com/" class="hospital-link" target="_blank">Apollo Hospitals</a>
+      <span class="rating">4.8/5</span>
+      <div class="tooltip">Top-rated multi-specialty hospital</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.yashodahospitals.com/" class="hospital-link" target="_blank">Yashoda Hospitals</a>
+      <span class="rating">4.7/5</span>
+      <div class="tooltip">Renowned for advanced treatments</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.carehospitals.com/" class="hospital-link" target="_blank">CARE Hospitals</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Trusted healthcare provider</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.kimshospitals.com/" class="hospital-link" target="_blank">KIMS Hospitals</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Known for quality care</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.rainbowhospitals.in/" class="hospital-link" target="_blank">Rainbow Hospitals</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Best pediatric services</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.citizenshospitals.com/" class="hospital-link" target="_blank">Citizen Hospitals</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Affordable healthcare services</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://aigindia.net/" class="hospital-link" target="_blank">Asian Institute of Gastroenterology</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Leading in gastroenterology</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.gandhihospital.telangana.gov.in/" class="hospital-link" target="_blank">Gandhi Hospital</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Government healthcare facility</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.medicoverhospitals.in/" class="hospital-link" target="_blank">Medicover Hospitals</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Global healthcare network</div>
+    </li>
+    <li class="hospital-item">
+      <a href="https://www.justdial.com/" class="hospital-link" target="_blank">Just Dial</a>
+      <span class="rating">4.6/5</span>
+      <div class="tooltip">Wide range of healthcare options</div>
+    </li>
+  </ul>
+</section>
+
+<footer>
+  <p>&copy; 2024 Best Hospitals. All rights reserved.</p>
+</footer>
+
+<script>
+  function filterHospitals() {
+    const input = document.getElementById("filterInput").value.toUpperCase();
+    const list = document.getElementById("hospitalList");
+    const items = list.getElementsByClassName("hospital-item");
+
+    for (let i = 0; i < items.length; i++) {
+      const hospitalName = items[i].getElementsByClassName("hospital-link")[0].innerText.toUpperCase();
+      items[i].style.display = hospitalName.includes(input) ? "" : "none";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #008080;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group input[type="radio"] {
+            width: auto;
+            display: inline-block;
+        }
+
+        button {
+            background-color: #008080;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #004d4d;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        input[type="date"], input[type="time"] {
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            justify-content: space-around;
+        }
+
+        .radio-group label {
+            display: inline-block;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+            }
+        }
+        nav {
+            background-color: #006666;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: right; 
+        }
+        nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li:hover {
+            background-color: #004d4d;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #006666;
+            width: 200px;
+        }
+        nav ul li ul li {
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#" onclick="showSection('home')">Home</a></li>
+        <li><a href="tests.html" onclick="showSection('tests')">Tests</a></li>
+        <li><a href="doctorsfinal.html" onclick="showSection('doctors')">Doctors</a></li>
+        <li><a href="booking.html" onclick="showSection('booking')">Book Appointment</a></li>
+        <li><a href="besthospitals.html" onclick="showSection('hospitals')">Best Hospitals</a></li>
+        <li><a href="loginfinal.html" onclick="showSection('doctorsLogin')">Login</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h2>Book Your Appointment</h2>
+    <form id="appointmentForm" onsubmit="return submitForm(event)">
+        <div class="form-group">
+            <label for="name">Patient Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required placeholder="Enter your age">
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="genderMale" name="gender" value="Male" required>
+                <label for="genderMale">Male</label>
+                <input type="radio" id="genderFemale" name="gender" value="Female" required>
+                <label for="genderFemale">Female</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="doctor">Choose Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="Dr. Harish Kumar - General Surgeon">Dr. Harish Kumar - General Surgeon</option>
+                <option value="Dr. Kotte Chiranjeevi - Pediatrics">Dr. Kotte Chiranjeevi - Pediatrics</option>
+                <option value="Dr. Kotte Anusha - Physiotherapist">Dr. Kotte Anusha - Physiotherapist</option>
+                <option value="Dr. Kishore Reddy - Orthopaedics">Dr. Kishore Reddy - Orthopaedics</option>
+                <option value="Dr. Sunil Kumar - Gastrologist">Dr. Sunil Kumar - Gastrologist</option>
+                <option value="Dr. Ramesh Konaki - Neurologist">Dr. Ramesh Konaki - Neurologist</option>
+                <option value="Dr. Upasana Konidele - Cardiologist">Dr. Upasana Konidele - Cardiologist</option>
+                <option value="Dr. Shivani Reddy - Urologist">Dr. Shivani Reddy - Urologist</option>
+                <option value="Dr. Akshara Burra - ENT">Dr. Akshara Burra - ENT</option>
+                <option value="Dr. Harika Gaje - Neurosurgeons">Dr. Harika Gaje - Neurosurgeons</option>
+                <option value="Dr. Siri Vempati - Psychiatrists">Dr. Siri Vempati - Psychiatrists</option>
+                <option value="Dr. Chunchu Siri - Dermatologist">Dr. Chunchu Siri - Dermatologist</option>
+                <option value="Dr. Swetha Thakur- Dentist">Dr. Swetha Thakur- Dentist</option>
+                <option value="Dr. Gampa Rithika - Child Specialist Doctor">Dr. Gampa Rithika - Child Specialist Doctor</option>
+                <option value="Dr. Ravula Vyshanavi- HIV">Dr. Ravula Vyshanavi- HIV</option>
+                <option value="Dr. Mamindla ShivaShankar - Eye Specialist">Dr. Mamindla ShivaShankar - Eye Specialist</option>
+                <option value="Dr. Soudu Srilatha - HomeoPathy">Dr. Soudu Srilatha - HomeoPathy</option>
+                <option value="Dr. DeviReddy - SpineSurgeon">Dr. DeviReddy - SpineSurgeon</option>
+                <option value="Dr. Sathish Kumar - Thyroid">Dr. Sathish Kumar - Thyroid</option>
+                    
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="appointmentDate">Appointment Date:</label>
+                <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="time">Preferred Time:</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+
+        <div class="form-group">
+            <label for="problem">Problem/Reason for Appointment:</label>
+            <textarea id="problem" name="problem" required placeholder="Describe your symptoms or reason for visit"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+        </div>
+
+        <div class="form-group">
+            <label>Consultation Type:</label>
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="online" name="consultation" value="Online" required>
+                    <label for="online">Online</label>
+                </div>
+                <div>
+                    <input type="radio" id="offline" name="consultation" value="Offline" required>
+                    <label for="offline">Offline</label>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Book Appointment</button>
+    </form>
+    <p id="successMessage" style="color: green; text-align: center; display: none;">Appointment successfully booked!</p>
+</main>
+
+<footer style="background-color: #008080; color: white; text-align: center; padding: 15px;">
+    <p>&copy; 2024 Hospital Management System. All Rights Reserved.</p>
+</footer>
+
+<script>
+    document.getElementById("doctor").addEventListener("change", function() {
+        const doctor = this.value;
+        const specializationField = document.getElementById("specialization");
+        const specialties = {
+            "Dr. Harish Kumar - General Surgeon": "General Surgery",
+            "Dr. Kotte Chiranjeevi - Pediatrics": "Pediatrics",
+            "Dr. Kotte Anusha - Physiotherapist": "Physiotherapy",
+            "Dr. Kishore Reddy - Orthopaedics": "Orthopaedics",
+            "Dr. Sunil Kumar - Gastrologist": "Gastroenterology",
+            "Dr. Ramesh Konaki - Neurologist": "Neurology",
+            "Dr. Upasana Konidele - Cardiologist": "Cardiology",
+            "Dr. Shivani Reddy - Urologist": "Urology",
+            "Dr. Akshara Burra - ENT": "ENT",
+            "Dr. Harika Gaje - Neurosurgeons": "Neurosurgery",
+            "Dr. Chunchu Siri - Dermatologist":" Dermatologist",
+            "Dr. Swetha Thakur- Dentist":" Dentist",
+            "Dr. Gampa Rithika - Child Specialist Doctor":"Child specialist Doctor",
+            "Dr. Ravula Vyshanavi- HIV":"HIV",
+            "Dr. Mamindla ShivaShankar - Eye Specialist":"Eye Specialist",
+            "Dr. Soudu Srilatha - HomeoPathy":"Homepathy",
+            "Dr. DeviReddy - SpineSurgeon":"SpineSurgeon",
+            "Dr. Sathish Kumar - Thyroid":"Thyroid",
+                    
+        };
+
+        specializationField.value = specialties[doctor];
+    });
+    function submitForm(event) {
+        event.preventDefault(); 
+        document.getElementById("successMessage").style.display = "block"; 
+        setTimeout(() => document.getElementById("appointmentForm").reset(), 3000); 
+    }
+</script>
+
+</body>
+</html>

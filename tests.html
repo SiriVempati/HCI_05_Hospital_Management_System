@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medical Tests & Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    h2, h1 {
+      text-align: center;
+      color: #333;
+    }
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product-card {
+      width: 180px;
+      padding: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .product-card h3 {
+      margin: 10px 0 5px;
+      color: #555;
+    }
+    .product-card p {
+      margin: 5px 0;
+    }
+    .book-button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .book-button:hover {
+      background-color: #45a049;
+    }
+    #booking-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 500px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      z-index: 10;
+    }
+    #booking-modal h3 {
+      text-align: center;
+    }
+    #test-options {
+      max-height: 200px;
+      overflow-y: auto;
+      margin: 10px 0;
+    }
+    .test-option {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    .test-option input {
+      margin-right: 10px;
+    }
+    #receipt, #payment-section {
+      background-color: #f8f8f8;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 4px;
+    }
+    .confirm-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .confirm-button:hover {
+      background-color: #0056b3;
+    }
+    #modal-close {
+      cursor: pointer;
+      color: #888;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.2em;
+    }
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 5;
+    }
+    .highlight-message {
+      color: #155724;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+    }
+    header {
+            background-color: #008080;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #006666;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: right; 
+        }
+        nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li:hover {
+            background-color: #004d4d;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #006666;
+            width: 200px;
+        }
+        nav ul li ul li {
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        main {
+            padding: 20px;
+            min-height: 400px;
+        }
+        footer {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .search-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-input {
+      width: 80%;
+      max-width: 500px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" onclick="showSection('home')">Home</a></li>
+            <li><a href="tests.html" onclick="showSection('tests')">Tests</a></li>
+            <li><a href="doctorsfinal.html" onclick="showSection('doctors')">Doctors</a></li>
+            <li><a href="newfinal1.html" onclick="showSection('booking')">Book Appointment</a></li>
+            <li><a href="besthospitals.html" onclick="showSection('hospitals')">Best Hospitals</a></li>
+            <li><a href="loginfinal.html" onclick="showSection('doctorsLogin')">Login</a></li>
+        </ul>
+    </nav>
+    <div class="search-bar">
+      <input
+        type="text"
+        class="search-input"
+        id="searchInput"
+        placeholder="Search for a test..."
+        onkeyup="filterTests()"
+      />
+    </div>
+<section id="tests" class="section">
+  <h2>Medical Tests & Prices</h2>
+  <div class="product-grid" id="productGrid">
+    <div class="product-card" data-name="Blood Test">
+        <img src="https://cdn.prod.website-files.com/6298fcd2f4f19a2f4a317fec/6298fcd3f4f19a1967318c92_why%20do%20blood%20test%20results%20vary%20-%20imaware.jpg" alt="Blood Test">
+        <h3>Blood Test</h3>
+        <p>Price: ₹1400</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="CT Scan">
+        <img src="https://media.istockphoto.com/id/1020435550/photo/nurse-looking-at-girl-during-cat-scan-exam.jpg?s=612x612&w=0&k=20&c=AaYsYt45Nj5MjkRc7CvWqIWQ-87lflNJXyZc-kb83Cg=" alt="CT Scan">
+        <h3>CT Scan</h3>
+        <p>Price: ₹5000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="MRI">
+        <img src="https://hga.com/wp-content/uploads/2017/12/Owensboro-Health-Regional-Hospital-interior-MRI-machine.jpg" alt="MRI">
+        <h3>MRI</h3>
+        <p>Price: ₹8000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="X-ray">
+        <img src="https://images-cdn.welcomesoftware.com/Zz00Y2Q0NWE3ZTBkYjkxMWVkYmNjMTU2OWFiYzc0NWM5OQ==/Definium656HD_Closeup%2012%20Year%20Old%20Boy%20Lying%20on%20Table%20-%20x-ray%20exam.png" alt="X-Ray">
+        <h3>X-Ray</h3>
+        <p>Price: ₹2000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="ECG">
+        <img src="https://balajiheartcenter.com/wp-content/uploads/2024/02/Untitled-design-27-1024x576.png" alt="ECG">
+        <h3>ECG</h3>
+        <p>Price: ₹6000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="EEG">
+        <img src="https://cdn.prod.website-files.com/5e0143c66e14efc18c6f469d/606511d893a7d258f1f11385_NoPath%20-%20Copy%20(7)%20(1).jpg" alt="EEG">
+        <h3>EEG</h3>
+        <p>Price: ₹8000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="Urine Test">
+        <img src="https://sa1s3optim.patientpop.com/assets/images/provider/photos/2711181.jpg" alt="Urine Test">
+        <h3>Urine Test</h3>
+        <p>Price: ₹1500</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="PET Scan">
+        <img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/12/PET-scan-machine-body1.jpg?w=1155&h=1528" alt="PET Scan">
+        <h3>PET Scan</h3>
+        <p>Price: ₹14000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="Scanning">
+        <img src="https://health-e.in/wp-content/uploads/2023/03/Types-of-Scanning-During-Pregnancy-.webp" alt="Scanning">
+        <h3>Scanning</h3>
+        <p>Price: ₹800</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="EndoScopy">
+        <img src="https://digestivehealthuk.com/wp-content/uploads/2020/11/endoscopy-gastroscopy.jpg" alt="EndoScopy">
+        <h3>EndoScopy</h3>
+        <p>Price: ₹3500</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card">
+        <img src="https://www.kewalhospital.in/wp-content/uploads/2023/11/Benefits-of-laparoscopy.jpg" alt="Laproscopy">
+        <h3>Laproscopy</h3>
+        <p>Price: ₹2000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card">
+        <img src="https://ultrasound.ie/wp-content/uploads/2015/05/Abdominal-Ultrasound-Scans-Dublin-2.jpg" alt="Ultrasound Scanning">
+        <h3>Ultrasound Scanning</h3>
+        <p>Price: ₹1200</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card">
+        <img src="https://www.suburbandiagnostics.com/Content/assets/images/covid-antibody-testing.jpg" alt="RTPCR"><br>
+        <h3>RTPCR</h3>
+        <p>Price: ₹2000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card">
+        <img src="https://www.e7health.com/files/blogs/fotosearch-k33695552-51.jpg" alt="HIV"><br>
+        <h3>HIV</h3>
+        <p>Price: ₹1000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card">
+        <img src="https://medeor.ae/wp-content/uploads/2023/01/Thyroid-Test.jpg" alt="Thyriod"><br>
+        <h3>Thyriod</h3>
+        <p>Price: ₹1300</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card">
+        <img src="https://static.toiimg.com/thumb/msid-69477385,width-1280,height-720,resizemode-4/69477385.jpg" alt="Diabetes Test"><br>
+        <h3>Diabetes Test</h3>
+        <p>Price: ₹500</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+    <div class="product-card" data-name="LFT">
+        <img src="https://cura4u.com/Common/DisplayFileFormFileName?fileName=Liver_Function_Test_LFT_How_to_correlate_different_readings__BlogImage_0dd64c42-d96b-48c1-8fc6-e716ae355a28.jpeg" alt="LFT"><br>
+        <h3>LFT</h3>
+        <p>Price: ₹2000</p>
+        <button class="book-button" onclick="openBookingModal()">Book Now</button>
+    </div>
+  </div>
+</section>
+<div id="booking-modal">
+  <span id="modal-close" onclick="closeBookingModal()">✖</span>
+  <h3>Select Tests</h3>
+  <div id="test-options">
+    <div class="test-option">
+      <label><input type="checkbox" value="Blood Test - ₹1400"> Blood Test (₹1400)</label>
+    </div>
+    <div class="test-option">
+      <label><input type="checkbox" value="CT Scan - ₹5000"> CT Scan (₹5000)</label>
+    </div>
+    <div class="test-option">
+      <label><input type="checkbox" value="MRI - ₹8000"> MRI (₹8000)</label>
+    </div>
+    <div class="test-option">
+        <label><input type="checkbox" value="X-Ray - ₹2000"> X-Ray (₹2000)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="ECG - ₹6000"> ECG (₹6000)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="EEG - ₹8000"> EEG (₹8000)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="Urine Test - ₹1500"> Urine Test (₹1500)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="PET Scan - ₹14000"> PET Scan (₹14000)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="Scanning - ₹800"> Scanning (₹800)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="EndoScopy - ₹3500"> EndoScopy (₹3500)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="LaproScopy - ₹2000"> LaproScopy (₹2000)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="Ultrasound Scanning - ₹1200"> Ultrasound Scanning (₹1200)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="RTPCR - ₹2000"> RTPCR (₹2000)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="HIV - ₹1000"> HIV (₹1000)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="Thyroid - ₹1300"> Thyroid (₹1300)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="Diabetes Test - ₹500"> Diabetes Test (₹500)</label>
+      </div>
+      <div class="test-option">
+        <label><input type="checkbox" value="LFT - ₹2000"> LFT (₹2000)</label>
+      </div>
+  </div>
+  <div id="receipt"></div>
+  <button class="confirm-button" onclick="confirmBooking()">Confirm Booking</button>
+  <div id="payment-section" style="display:none;">
+    <h4>Choose Payment Method:</h4>
+    <select id="payment-method">
+      <option value="Credit Card">Credit Card</option>
+      <option value="Debit Card">Debit Card</option>
+      <option value="UPI">UPI</option>
+      <option value="Net Banking">Net Banking</option>
+    </select>
+    <button class="confirm-button" onclick="finalizeBooking()">Complete Payment</button>
+  </div>
+</div>
+
+<div id="overlay"></div>
+
+<script>
+  function openBookingModal() {
+    document.getElementById('booking-modal').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+    document.getElementById('payment-section').style.display = 'none'; 
+  }
+
+  function closeBookingModal() {
+    document.getElementById('booking-modal').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('receipt').innerHTML = ''; 
+    document.getElementById('payment-section').style.display = 'none'; 
+  }
+
+  function confirmBooking() {
+    const selectedTests = [];
+    const checkboxes = document.querySelectorAll('#test-options input[type="checkbox"]:checked');
+    let total = 0;
+
+    checkboxes.forEach((checkbox) => {
+      selectedTests.push(checkbox.value);
+      total += parseInt(checkbox.value.split('₹')[1]);
+    });
+
+    if (selectedTests.length === 0) {
+      alert("Please select at least one test.");
+      return;
+    }
+
+    document.getElementById('receipt').innerHTML = `
+      <h4>Selected Tests:</h4>
+      <p>${selectedTests.join('<br>')}</p>
+      <h4>Total: ₹${total}</h4>
+    `;
+    document.getElementById('payment-section').style.display = 'block';
+  }
+
+  function finalizeBooking() {
+    const paymentMethod = document.getElementById('payment-method').value;
+    document.getElementById('receipt').innerHTML += `
+      <div class="highlight-message">
+        Tests confirmed! Payment via ${paymentMethod} has been completed.
+      </div>
+    `;
+    document.getElementById('payment-section').style.display = 'none'; 
+  }
+  function filterTests() {
+      const searchQuery = document.getElementById('search-input').value.toLowerCase();
+      const productCards = document.querySelectorAll('.product-card');
+
+      productCards.forEach(card => {
+        const testName = card.getAttribute('data-name').toLowerCase();
+        if (testName.includes(searchQuery)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+</script>
+
+</body>
+</html>

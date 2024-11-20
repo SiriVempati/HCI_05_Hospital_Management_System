@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Management System</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 400px;
+      padding: 60px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      text-align: center;
+    }
+    .input-field, .dashboard-section {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .login-button, .toggle-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .toggle-button {
+      background-color: #007bff;
+      margin-bottom: 10px;
+    }
+    .toggle-button:hover {
+      background-color: #0056b3;
+    }
+    .dashboard-section {
+      text-align: left;
+      background-color: #f8f8f8;
+      border-left: 4px solid #007bff;
+      padding: 15px;
+    }
+    .dashboard-section h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    .hidden {
+      display: none;
+    }
+    header {
+      background-color: #008080;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      width: 100%;
+    }
+    nav {
+      background-color: #006666;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+    nav ul li {
+      position: relative;
+    }
+    nav ul li a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    nav ul li:hover {
+      background-color: #004d4d;
+    }
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background-color: #006666;
+      width: 200px;
+    }
+    nav ul li ul li {
+      display: block;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    footer {
+      background-color: #008080;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+    .link {
+      display: block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-size: 14px;
+    }
+    .link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tests.html">Tests</a></li>
+        <li><a href="doctorsfinal.html">Doctors</a></li>
+        <li><a href="booking.html">Book Appointment</a></li>
+        <li><a href="besthospitals.html">Best Hospitals</a></li>
+        <li><a href="loginfinal.html">Login</a></li>
+    </ul>
+</nav>
+<nav1><h1>MedConnect</h1></nav1>
+<br>
+<br><br><br>
+<div class="container">
+  <h2 id="login-title">Login</h2>
+  <div id="login-section">
+    <div class="toggle-buttons">
+      <button class="toggle-button" onclick="showDoctorLogin()">Doctor</button>
+      <button class="toggle-button" onclick="showPatientLogin()">Patient</button>
+    </div>
+    <div id="doctor-login" class="hidden">
+      <input type="text" id="doctor-username" class="input-field" placeholder="Doctor ID" required>
+      <input type="password" id="doctor-password" class="input-field" placeholder="Password" required>
+      <button class="login-button" onclick="login('doctor')">Login as Doctor</button>
+      <a href="forgotpassword.html" class="link">Forgot Password?</a>
+      <a href="signupdoctor.html" class="link">Create a New Account</a>
+    </div>
+    <div id="patient-login" class="hidden">
+      <input type="text" id="patient-username" class="input-field" placeholder="Patient ID" required>
+      <input type="password" id="patient-password" class="input-field" placeholder="Password" required>
+      <button class="login-button" onclick="login('patient')">Login as Patient</button>
+      <a href="forgotpassword.html" class="link">Forgot Password?</a>
+      <a href="signuppatient.html" class="link">Create a New Account</a>
+    </div>
+  </div>
+
+  <div id="doctor-dashboard" class="hidden">
+    <h2>Doctor Dashboard</h2>
+    <div class="dashboard-section">
+      <h3>Daily Appointments</h3>
+      <p>Placeholder for today's appointments.</p>
+    </div>
+    <div class="dashboard-section">
+      <h3>Monthly Calendar</h3>
+      <p>Placeholder for monthly calendar.</p>
+    </div>
+    <div class="dashboard-section">
+      <h3>Monthly Performance</h3>
+      <p>Placeholder for performance metrics.</p>
+    </div>
+    <div class="dashboard-section">
+      <h3>Important Meetings</h3>
+      <p>Placeholder for upcoming meetings.</p>
+    </div>
+    <button class="login-button" onclick="logout()">Logout</button>
+  </div>
+
+  <div id="patient-dashboard" class="hidden">
+    <h2>Patient Dashboard</h2>
+    <div class="dashboard-section">
+      <h3>Booked Appointments</h3>
+      <p>Placeholder for booked appointments with doctors and times.</p>
+    </div>
+    <div class="dashboard-section">
+      <h3>Lab Reports</h3>
+      <p>Placeholder for lab report status.</p>
+    </div>
+    <button class="login-button" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<footer>
+    <p>© 2024 Hospital Management System</p>
+</footer>
+
+<script>
+  function showDoctorLogin() {
+    document.getElementById("login-title").innerText = "Doctor Login";
+    document.getElementById("doctor-login").classList.remove("hidden");
+    document.getElementById("patient-login").classList.add("hidden");
+  }
+
+  function showPatientLogin() {
+    document.getElementById("login-title").innerText = "Patient Login";
+    document.getElementById("doctor-login").classList.add("hidden");
+    document.getElementById("patient-login").classList.remove("hidden");
+  }
+
+  function login(role) {
+    if (role === "doctor") {
+      const username = document.getElementById("doctor-username").value;
+      const password = document.getElementById("doctor-password").value;
+      if (username === "doctor123" && password === "docpass") {
+        document.getElementById("login-section").classList.add("hidden");
+        document.getElementById("doctor-dashboard").classList.remove("hidden");
+      } else {
+        alert("Invalid Doctor ID or Password.");
+      }
+    } else if (role === "patient") {
+      const username = document.getElementById("patient-username").value;
+      const password = document.getElementById("patient-password").value;
+      if (username === "patient123" && password === "patpass") {
+        document.getElementById("login-section").classList.add("hidden");
+        document.getElementById("patient-dashboard").classList.remove("hidden");
+      } else {
+        alert("Invalid Patient ID or Password.");
+      }
+    }
+  }
+
+  function logout() {
+    document.getElementById("doctor-dashboard").classList.add("hidden");
+    document.getElementById("patient-dashboard").classList.add("hidden");
+    document.getElementById("login-section").classList.remove("hidden");
+    document.getElementById("login-title").innerText = "Login";
+  }
+</script>
+
+</body>
+</html>

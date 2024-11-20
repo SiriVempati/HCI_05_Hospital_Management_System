@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #008080;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #006666;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: right; 
+        }
+        nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li:hover {
+            background-color: #004d4d;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #006666;
+            width: 200px;
+        }
+        nav ul li ul li {
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        main {
+            padding: 20px;
+            min-height: 400px;
+        }
+        footer {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #008080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004d4d;
+        }
+        .image-container {
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            opacity: 0.8;
+        }
+        .image-container .text-overlay {
+            position: absolute;
+            top: 80%;
+            left: 37%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color:beige;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+#aboutUs {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+#aboutUs h2 {
+    text-align: center;
+    color: #008080;
+    margin-bottom: 20px;
+}
+
+#aboutUs p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #555;
+}
+#aboutUs .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; 
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+#aboutUs .product-grid div {
+    flex: 1 1 calc(30% - 15px); 
+    max-width: 300px; 
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#aboutUs .product-grid div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#aboutUs .product-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#aboutUs .product-grid div h3 {
+    margin: 10px 0 5px;
+    color: #008080;
+    font-size: 18px;
+}
+
+#aboutUs .product-grid div p {
+    padding: 0 10px 10px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+}
+@media (max-width: 768px) {
+    #aboutUs .product-grid div {
+        flex: 1 1 calc(45% - 15px); 
+    }
+}
+
+@media (max-width: 480px) {
+    #aboutUs .product-grid div {
+        flex: 1 1 100%; 
+    }
+}
+
+.underline {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MedConnect</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html" onclick="showSection('home')">Home</a></li>
+            <li><a href="tests.html" onclick="showSection('tests')">Tests</a></li>
+            <li><a href="doctorsfinal.html" onclick="showSection('doctors')">Doctors</a></li>
+            <li><a href="booking.html" onclick="showSection('booking')">Book Appointment</a></li>
+            <li><a href="besthospitals.html" onclick="showSection('hospitals')">Best Hospitals</a></li>
+            <li><a href="loginfinal.html" onclick="showSection('doctorsLogin')">Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home" class="section active">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/c6/7c/c1/c67cc114fc289a3eacc442da873053b2.jpg" alt="Hospital Image">
+                <div class="text-overlay">
+                    "Medicines Cure Diseases But<br> 
+                    Only Doctors Can Cure The Patients".
+                </div>
+            </div>
+        </section>
+        <fieldset>
+            <h3 class="underline">🌟 Exclusive Offers 🌟</h3>
+        <ul style="list-style: none; padding-left: 0; font-size: 18px; line-height: 1.8;">
+            <li>🎉 <b>50% Off</b> on Complete Health Check-Up Packages.</li>
+            <li>💡 <b>Free Consultation</b> for First-Time Patients.</li>
+            <li>🩺 <b>25% Discount</b> on Advanced Diagnostic Services.</li>
+            <li>💊 <b>Buy One Get One Free</b> on Select Lab Tests.</li>
+        </ul>
+        </fieldset>
+        <br>
+        <fieldset>
+        <h3>📖 Important Topics 📖</h3>
+        <ul style="list-style: none; padding-left: 0; font-size: 18px; line-height: 1.8;">
+            <li>💪 <b>Healthy Lifestyle Tips</b>: Simple habits for a better life.</li>
+            <li>😌 <b>Stress Management</b>: Top 10 techniques to stay calm.</li>
+            <li>🔬 <b>Latest in Medical Technology</b>: Advancements changing lives.</li>
+            <li>🥗 <b>Nutrition Guides</b>: Foods that boost immunity and energy.</li>
+            <li>🏃‍♂️ <b>Fitness Hacks</b>: Quick workouts for a busy schedule.</li>
+        </ul>
+        </fieldset>
+        <br>
+        <fieldset>
+        <h3>✅ Important Services ✅</h3>
+        <ul style="list-style: none; padding-left: 0; font-size: 18px; line-height: 1.8;">
+            <li>🚑 <b>24/7 Emergency Care</b>: Immediate support when you need it.</li>
+            <li>💻 <b>Online Doctor Consultations</b>: Quality healthcare at your fingertips.</li>
+            <li>🧪 <b>Advanced Diagnostics</b>: Accurate testing for better outcomes.</li>
+            <li>🏥 <b>Home Care Services</b>: Expert care in the comfort of your home.</li>
+            <li>📱 <b>Mobile App Support</b>: Manage appointments and health records easily.</li>
+        </ul>
+        </fieldset>
+        <button onclick="showSection('aboutUs')" style="margin: 15px auto; display: block;">About Us</button>
+        <section id="aboutUs" class="section">
+            <h2>About Us</h2>
+            <p>
+                Welcome to <b>MedConnect</b>, your trusted partner in healthcare. 
+                At MedConnect, we aim to connect patients with the best doctors, hospitals, and medical services.
+            </p>
+            <h2>Overview</h2>
+            <p>
+                Founded in 2012 by a team of India’s leading cardiologists, MedConnect Hospitals started its journey 
+                as a 100-bedded Heart Institute with a core team of 20 cardiologists, 1 operating theatre, and 
+                1 catheterization laboratory. 25 years later, the MedConnect Hospitals Group is a multi-speciality 
+                healthcare provider with 17 healthcare facilities serving 7 cities across 6 states in India. 
+                It is the regional leader in South and Central India and is amongst the top 5 Pan-Indian 
+                hospital chains. MedConnect Hospitals delivers comprehensive care in over 30 specialities. Adopting a 
+                service-oriented delivery model, MedConnect Hospitals provides cost-effective medical care, with an 
+                uncompromising commitment to its core purpose – ‘To make quality healthcare accessible at affordable costs to all’
+            </p>
+            <h2>Our Vision, Mission and Values</h2>
+            <p><b>Vision:</b> To be a trusted, people-centric integrated healthcare system as a model for global healthcare.</p>
+            <p><b>Mission:</b> To provide the best and cost-effective care, accessible to every patient through integrated clinical practice, education and research.</p>
+
+            <p><b>Values:</b></p>
+            <p><b>Transparency:</b> Being transparent requires courage and we stand for transparency. Every aspect of our business is clear and comprehensive to the relevant stakeholder and we never compromise on the fundamentals at any cost.</p> 
+            <p><b>Teamwork:</b> A collaborative work ecosystem is where all the collective efficiencies are harnessed and propelled towards achieving the common goals.</p> 
+            <p><b>Compassion:</b> Compassion comes from understanding that life is precious and every patient needs respect, love and care. This attitude must be shown every moment by us, inside our hospitals and outside.</p>
+            
+            <h2>Our Achievements</h2>
+            <p>Developed India's first indigenous Coronary Stent.</p>
+            <p>First Website in AP to perform Swap kidney transplant</p>
+            <p>First Website in India to perform Womb transplant</p>
+            <p>First Website in India to perform Heart Surgery on Foetus</p>
+            <p>First Website in Central India to start 3D Laparoscopy Surgery</p>
+            <p>First Website in AP to start Endovenous surgery for Varicose Veins</p>
+            <p>First Website to perform Hybrid repair of Thoracoabdominal aortic aneurysm in the country</p>
+            <h2>Why MedConnect Website</h2>
+            <div class="product-grid">
+                <div>
+                    <img src="https://www.carehospitals.com/assets/images/main/care-hospitals-treatments-2.webp" alt="Leading Doctors">
+                    <h3>Leading Doctors</h3>
+                    <p>A pool of over 1400 doctors to provide you modern and world class treatment.</p>
+                </div>
+                <div>
+                    <img src="https://www.carehospitals.com/assets/images/main/care-hospitals-treatments-3.webp" alt="Treatment Options">
+                    <h3>Treatment Options</h3>
+                    <p>We provide services in over 30+ medical specialities with state-of-the-art infrastructure and highest standards of care.</p>
+                </div>
+                <div>
+                    <img src="https://www.carehospitals.com/assets/images/main/care-hospitals-treatments-1.webp" alt="Accreditations">
+                    <h3>Accreditations</h3>
+                    <p>Our highest standards of care, safe and hygiene practices reflected as our Awards and Accreditations.</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <hr>
+            <br>
+
+        </section>
+        
+</form>
+</body>
+</html>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hospital Management System. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+        document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('appointmentSuccessMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

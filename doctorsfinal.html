@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" onclick="showSection('home')">Home</a></li>
+            <li><a href="tests.html" onclick="showSection('tests')">Tests</a></li>
+            <li><a href="doctorsfinal.html" onclick="showSection('doctors')">Doctors</a></li>
+            <li><a href="booking.html" onclick="showSection('booking')">Book Appointment</a></li>
+            <li><a href="besthospitals.html" onclick="showSection('hospitals')">Best Hospitals</a></li>
+            <li><a href="loginfinal.html" onclick="showSection('doctorsLogin')">Login</a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+<section id="doctors" class="section">
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/dr.-(lt-col)-p.-prabhakar.webp" alt="Dr. Harish Kumar Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr. Harish Kumar</h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS, MS</p>
+                <p class="card-text"><strong>Specialization:</strong> General Surgeon</p>
+                <p class="card-text"><strong>Experience:</strong> 15 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (9 AM - 5 PM)</p>
+                <div class="card-footer">Currently Working at: Amor Hospitals</div>
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor1-modal')">View Profile</button>
+        </div>
+        <div id="doctor1-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor1-modal')">&times;</span>
+                <h2>Dr. Harish Kumar</h2>
+                <p><strong>Qualification:</strong> MBBS, MS</p>
+                <p><strong>Specialization:</strong> General Surgeon</p>
+                <p><strong>Experience:</strong> 15 Years</p>
+                <p><strong>Currently Working at:</strong> Amor Hospitals</p>
+                <h3>Professional Career</h3>
+                <p><strong>Languages:Telugu,Hindi,English</strong></p>
+                <p>Dr. Harish Kumar has been working in the medical field for over 15 years, specializing in general surgery...</p>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Journal on General Surgery Techniques - 2020</a></li>
+                    <li><a href="#">Advancements in Minimal Invasive Surgery - 2018</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/dr-a-manikanteswara-rao-d.webp" alt="Dr. Kotte Chiranjeevi Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr. Kotte Chiranjeevi</h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS, MD (Pediatrics)</p>
+                <p class="card-text"><strong>Specialization:</strong> Pediatrician</p>
+                <p class="card-text"><strong>Experience:</strong> 10 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Sat (10 AM - 4 PM)</p>
+                <div class="card-footer">Currently Working at: Ved Children's Clinic</div>
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor2-modal')">View Profile</button>
+        </div>
+        <div id="doctor2-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor2-modal')">&times;</span>
+                <h2>Dr. Kotte Chiranjeevi</h2>
+                <p><strong>Qualification:</strong> MBBS, MD (Pediatrics)</p>
+                <p><strong>Specialization:</strong> Pediatrician</p>
+                <p><strong>Experience:</strong> 10 Years</p>
+                <p><strong>Currently Working at:</strong> Ved Children's Clinic</p>
+                <h3>Professional Career</h3>
+                <p>Dr. Kotte Chiranjeevi has been serving children for over 10 years, focusing on pediatric care...</p>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Pediatric Care - 2019</a></li>
+                    <li><a href="#">Child Development and Health - 2017</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.lvpei.org/storage/doctor_profiles/DP_1629710416.jpg" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr. Kotte Anusha</h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS, (B.PT.) (Orthopedics)</p>
+                <p class="card-text"><strong>Specialization:</strong> Physiotherapist</p>
+                <p class="card-text"><strong>Experience:</strong> 9 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Ved Children's Clinic
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor3-modal')">View Profile</button>
+        </div>
+        <div id="doctor3-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor3-modal')">&times;</span>
+                <h2>Dr. Kotte Anusha</h2>
+                <p><strong>Qualification:</strong> MBBS, (B.PT.) (Orthopedics) </p>
+                <p><strong>Specialization:</strong> Physiotherapist</p>
+                <p><strong>Experience:</strong> 9 Years</p>
+                <p><strong>Currently Working at:</strong> Ved Children's Clinic</p>
+                <h3>Professional Career</h3>
+                <p>Dr. Kotte Anusha has been serving children for over 9 years, focusing on Physiotherapist care...</p>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Physciotherapy Care - 2019</a></li>
+                    <li><a href="#">International journal of physiciotherapy Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://cdn.apollohospitals.com/hyderabad/2024/06/Dr-Siddhartha-Chakravarthy.jpg" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr. Kishore Reddy</h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS, MD (Orthopedics)</p>
+                <p class="card-text"><strong>Specialization:</strong> Orthopaedics</p>
+                <p class="card-text"><strong>Experience:</strong> 10 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Apollo Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor4-modal')">View Profile</button>
+        </div>
+        <div id="doctor4-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor4-modal')">&times;</span>
+                <h2>Dr. Kishore Reddy</h2>
+                <p><strong>Qualification:</strong> MBBS, MD (Orthopedics) </p>
+                <p><strong>Specialization:</strong>Orthopaedics </p>
+                <p><strong>Experience:</strong> 10 Years</p>
+                <p><strong>Currently Working at:</strong> Apollo Hospitals</p>
+                <h3>Professional Career</h3>
+                <p>Dr. Kishore Reddy has been serving children for over 10 years, focusing on Physiotherapist care...</p>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Orthopedics Care - 2019</a></li>
+                    <li><a href="#">International journal of Orthopedics Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://cdn.apollohospitals.com/hyderabad/2024/06/Dr-Gopinath-Bandari.jpg" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Sunil Reddy </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MS(Medicine),DM(Gastroenterology)</p>
+                <p class="card-text"><strong>Specialization:</strong>Gastrologist </p>
+                <p class="card-text"><strong>Experience:</strong> 13 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Yashodha Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor5-modal')">View Profile</button>
+        </div>
+        <div id="doctor5-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor5-modal')">&times;</span>
+                <h2>Dr. Sunil Reddy</h2>
+                <p><strong>Qualification:</strong> MBBS,MS(Medicine),DM(Gastroenterology) </p>
+                <p><strong>Specialization:</strong>Gastrologist </p>
+                <p><strong>Experience:</strong> 13 Years</p>
+                <p><strong>Currently Working at:</strong>Yashodha Hospitals </p>
+                <h3>Professional Career</h3>
+                <p>Dr. Sunil Reddy has been serving children for over 10 years, focusing on Physiotherapist care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Gastroenterology Care - 2019</a></li>
+                    <li><a href="#">International journal of Gastroenterology Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://cdn3.rainbowhospitals.in/user/doctor/large_images/TvWVqNPSgxGrGLfRNovoIOUVsDKCzRXgGCEqpMtB.png" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Ramesh Konaki </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MS(Neurology)</p>
+                <p class="card-text"><strong>Specialization:</strong>Neurologist</p>
+                <p class="card-text"><strong>Experience:</strong> 13 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Rainbow Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor6-modal')">View Profile</button>
+        </div>
+        <div id="doctor6-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor6-modal')">&times;</span>
+                <h2>Dr. Ramesh Konaki </h2>
+                <p><strong>Qualification:</strong> MBBS,MS(Neurology) </p>
+                <p><strong>Specialization:</strong>Neurologist </p>
+                <p><strong>Experience:</strong> 13 Years</p>
+                <p><strong>Currently Working at:</strong> Rainbow Hospitals </p>
+                <h3>Professional Career</h3>
+                <p>Dr.Ramesh Konaki  has been serving children for over 13 years, focusing on Neurology care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Neurology Care - 2019</a></li>
+                    <li><a href="#">International journal of Neurology Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1H1-R9OhQrVnvK6F4JcsAwAWz6vdMOYHHGQ&s" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Upasana Konidela </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MS(Cardiology)</p>
+                <p class="card-text"><strong>Specialization:</strong>Cardiologist </p>
+                <p class="card-text"><strong>Experience:</strong> 10 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Apollo Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor7-modal')">View Profile</button>
+        </div>
+        <div id="doctor7-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor7-modal')">&times;</span>
+                <h2>Dr. Upasana Konidela </h2>
+                <p><strong>Qualification:</strong> MBBS,MS(Cardiology) </p>
+                <p><strong>Specialization:</strong>Cardiologist</p>
+                <p><strong>Experience:</strong> 10 Years</p>
+                <p><strong>Currently Working at:</strong> Apollo  Hospitals </p>
+                <h3>Professional Career</h3>
+                <p>Dr. Upasana Konidela has been serving children for over 10 years, focusing on Cardiology care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Cardiology Care - 2019</a></li>
+                    <li><a href="#">International journal of Cardiology Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.lvpei.org/storage/doctor_profiles/DP_1533814227.jpg" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Shivani Reddy</h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MD(Urology)</p>
+                <p class="card-text"><strong>Specialization:</strong>Urologist </p>
+                <p class="card-text"><strong>Experience:</strong> 5 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Care Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor8-modal')">View Profile</button>
+        </div>
+        <div id="doctor8-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor8-modal')">&times;</span>
+                <h2>Dr.Shivani Reddy </h2>
+                <p><strong>Qualification:</strong> MBBS,MD(Urology) </p>
+                <p><strong>Specialization:</strong>Urologist</p>
+                <p><strong>Experience:</strong> 5 Years</p>
+                <p><strong>Currently Working at:</strong> Care  Hospitals </p>
+                <h3>Professional Career</h3>
+                <p>Dr.Shivani Reddy  has been serving children for over 5 years, focusing on Urology care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Urology Care - 2019</a></li>
+                    <li><a href="#">International journal of Urology Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/dr-a-kanchana-lakshmi.webp" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Akshara Burra </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MD(ENT)</p>
+                <p class="card-text"><strong>Specialization:</strong>ENT </p>
+                <p class="card-text"><strong>Experience:</strong> 6 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: CITIZEN Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor9-modal')">View Profile</button>
+        </div>
+        <div id="doctor9-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor9-modal')">&times;</span>
+                <h2>Dr. Akshara Burra</h2>
+                <p><strong>Qualification:</strong> MBBS,MD(ENT) </p>
+                <p><strong>Specialization:</strong>ENT</p>
+                <p><strong>Experience:</strong> 6 Years</p>
+                <p><strong>Currently Working at:</strong> CITIZEN Hospitals </p>
+                <h3>Professional Career</h3>
+                <p>Dr.  Akshara Burra has been serving children for over 6 years, focusing on ENT care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in ENT Care - 2019</a></li>
+                    <li><a href="#">International journal of ENT Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.lvpei.org/storage/doctor_profiles/DP_1657882047.jpg" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Harika Gaje </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MS(Neurology)</p>
+                <p class="card-text"><strong>Specialization:</strong>Neurosurgeons </p>
+                <p class="card-text"><strong>Experience:</strong> 4 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: AIG
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor10-modal')">View Profile</button>
+        </div>
+        <div id="doctor10-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor10-modal')">&times;</span>
+                <h2>Dr. Harika Gaje</h2>
+                <p><strong>Qualification:</strong> MBBS,MS(Neurology) </p>
+                <p><strong>Specialization:</strong>Neurosurgeons</p>
+                <p><strong>Experience:</strong> 4 Years</p>
+                <p><strong>Currently Working at:</strong>AIG </p>
+                <h3>Professional Career</h3>
+                <p>Dr.  Harika Gaje  has been serving children for over 4 years, focusing on Neurology  care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Neurology Care - 2019</a></li>
+                    <li><a href="#">International journal of Neurology Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://png.pngtree.com/png-vector/20240528/ourmid/pngtree-indian-doctor-woman-smiling-at-camera-png-image_12531120.png" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Siri Vempati </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MS(psychology)</p>
+                <p class="card-text"><strong>Specialization:</strong>Psychiatrists </p>
+                <p class="card-text"><strong>Experience:</strong> 8 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: MediCover
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor11-modal')">View Profile</button>
+        </div>
+        <div id="doctor11-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor11-modal')">&times;</span>
+                <h2>Dr. Siri Vempati </h2>
+                <p><strong>Qualification:</strong> MBBS,MS(psychology) </p>
+                <p><strong>Specialization:</strong>Psychiatrists </p>
+                <p><strong>Experience:</strong> 8 Years</p>
+                <p><strong>Currently Working at:</strong>MediCover </p>
+                <h3>Professional Career</h3>
+                <p>Dr. Siri Vempati  has been serving children for over 8 years, focusing on psychology care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in psychology Care - 2019</a></li>
+                    <li><a href="#">International journal of psychology Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/aem-harika.webp" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Chunchu Siri </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MD,MS</p>
+                <p class="card-text"><strong>Specialization:</strong>Dermatologist </p>
+                <p class="card-text"><strong>Experience:</strong> 4 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Care Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor12-modal')">View Profile</button>
+        </div>
+        <div id="doctor12-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal('doctor12-modal')">&times;</span>
+                <h2>Dr. Chunchu Siri </h2>
+                <p><strong>Qualification:</strong> MBBS,MD,MS </p>
+                <p><strong>Specialization:</strong>Dermatologist </p>
+                <p><strong>Experience:</strong> 4 Years</p>
+                <p><strong>Currently Working at:</strong> Care Hospitals</p>
+                <h3>Professional Career</h3>
+                <p>Dr. Chunchu Siri  has been serving children for over 4 years, focusing on Dermatology care...</p>
+                <h3>Available Appointments</h3>
+                <button class="book-btn" onclick="showBookingForm('online')">Book Online Consultation</button>
+                <button class="book-btn" onclick="showBookingForm('offline')">Book Offline Consultation</button>
+                <h3>Published Journals</h3>
+                <ul>
+                    <li><a href="#">Best Practices in Dermatology Care - 2019</a></li>
+                    <li><a href="#">International journal of Dermatology Research</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/pathologist-a-p-archana.webp" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Swetha Thakur </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS</p>
+                <p class="card-text"><strong>Specialization:</strong>Dentist </p>
+                <p class="card-text"><strong>Experience:</strong> 7 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Citizen Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor13-modal')">View Profile</button>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/gynecologist-abhinaya-alluri.webp" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Gampa Rithika </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MD</p>
+                <p class="card-text"><strong>Specialization:</strong>Chidren Specialist Doctor </p>
+                <p class="card-text"><strong>Experience:</strong> 6 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Rainbow Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor14-modal')">View Profile</button>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/indore/assets/images/main/dr-aditi-laad.png" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Ravula Vyshanvi </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS</p>
+                <p class="card-text"><strong>Specialization:</strong>HIV Specialist </p>
+                <p class="card-text"><strong>Experience:</strong> 9 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: AIG Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor15-modal')">View Profile</button>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/dr-avinash-kumar.webp" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Mamindla Shiva Shankar </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS</p>
+                <p class="card-text"><strong>Specialization:</strong>Eye Specialist </p>
+                <p class="card-text"><strong>Experience:</strong> 8 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: NIMS Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor16-modal')">View Profile</button>
+        </div>
+        <div class="product-card">
+            <img src="https://www.carehospitals.com/assets/images/main/dr-ankita-mitra.webp" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Soudu Srilatha </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MS</p>
+                <p class="card-text"><strong>Specialization:</strong>Homeopathy </p>
+                <p class="card-text"><strong>Experience:</strong> 10 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: KIMS Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor17-modal')">View Profile</button>
+        </div>
+        <div class="product-card">
+            <img src="https://www.lvpei.org/storage/doctor_profiles/DP_1712547214.jpg" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Devi Reddy </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,DM,MS</p>
+                <p class="card-text"><strong>Specialization:</strong> Spine Surgeon</p>
+                <p class="card-text"><strong>Experience:</strong> 25 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: Gandhi Hospitals 
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor18-modal')">View Profile</button>
+        </div>
+        <div class="product-card">
+            <img src="https://starhospitalsproduction.s3.amazonaws.com/ux4BlurjnbBOUjbxP147II0L8QJ46Mv4UJpB4FbH.webp" alt="Doctor Image">
+            <div class="card-content">
+                <h2 class="card-title">Dr.Sathish Kumar </h2>
+                <p class="card-text"><strong>Qualification:</strong> MBBS,MS</p>
+                <p class="card-text"><strong>Specialization:</strong>Thyroid Specialist </p>
+                <p class="card-text"><strong>Experience:</strong> 6 Years</p>
+                <p class="card-text timings"><strong>Timings:</strong> Mon-Fri (11 AM - 7 PM)</p>
+            </div>
+            <div class="card-footer">
+                Currently Working at: KIMS Hospitals
+            </div>
+            <button class="view-profile-btn" onclick="showDoctorDetails('doctor19-modal')">View Profile</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+    </div>
+    
+</section>
+
+<script>
+    function showDoctorDetails(modalId) {
+        document.getElementById(modalId).style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modals = document.getElementsByClassName("modal");
+        for (let i = 0; i < modals.length; i++) {
+            if (event.target == modals[i]) {
+                modals[i].style.display = "none";
+            }
+        }
+    }
+    <script>
+        function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modals = document.getElementsByClassName("modal");
+        for (let i = 0; i < modals.length; i++) {
+            if (event.target == modals[i]) {
+                modals[i].style.display = "none";
+            }
+        }
+    }
+
+</script>
+
+<style>
+    .product-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .product-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 300px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .product-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .card-text {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
+    .card-footer {
+        background-color: #f8f8f8;
+        padding: 8px;
+        font-size: 12px;
+        color: #555;
+    }
+
+    .view-profile-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .view-profile-btn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Modal styling */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding-top: 50px;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 50%;
+    }
+
+    .close-btn {
+        float: right;
+        font-size: 28px;
+        color: #aaa;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        color: #000;
+    }
+    .success-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #d4edda;
+        color: #155724;
+        padding: 20px;
+        border-radius: 8px;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    .tick-mark {
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    /* Booking form styling */
+    .booking-form {
+        margin-top: 20px;
+    }
+    .booking-form label {
+        display: block;
+        margin: 10px 0 5px;
+    }
+    .booking-form input, .booking-form select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+    }
+    .booking-form button {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        width: 100%;
+        border-radius: 4px;
+    }
+    .booking-form button:hover {
+        background-color: #218838;
+    }
+    header {
+            background-color: #008080;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #006666;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: right; 
+        }
+        nav ul li {
+            display: inline-block;
+            position: relative;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li:hover {
+            background-color: #004d4d;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #006666;
+            width: 200px;
+        }
+        nav ul li ul li {
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        main {
+            padding: 20px;
+            min-height: 400px;
+        }
+        footer {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+</style>
+</body>
+</html>
